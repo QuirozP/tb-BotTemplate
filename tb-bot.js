@@ -2,7 +2,8 @@ let odd = true
 const io = require("socket.io-client");
 var he = require('he');
 const moment = require("moment");
-const _ = require("lodash");
+const _ = require("lodash"); 
+// you can add another npm package if you want for your bot.
 const socket = io("http://www.windows93.net:8081", {
 	forceNew: true,
 	transportOptions: {
