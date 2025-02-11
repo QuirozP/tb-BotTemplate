@@ -24,7 +24,7 @@ const socket = io("http://www.windows93.net:8081", {
 	}
 });
 
-function bot.send(msg){
+function botsend(msg){
   if (odd) {
     socket.send(msg)
     odd = false
@@ -41,23 +41,23 @@ socket.send("Hello, World!") // a welcome message. you can remove this.
 socket.on("message", function(data) {
   
   if (data.msg == "t.hello") {
-    bot.send(he.decode("Hello, " + data.nick + "")) // you can replace this
+    botsend(he.decode("Hello, " + data.nick + "")) // you can replace this
   } // NOTE: It's recommendable to use he.decode when the command code has "data.nick". EXAMPLE: socket.send(he.decode("" + data.nick + " is nice."))
 
   if (data.msg == "t.ping") {
-    bot.send("Pong!")
+    botsend("Pong!")
   }
   
   if (data.msg == "t.time") {
-    bot.send("The time is: " + moment().format('LT') + "")
+    botsend("The time is: " + moment().format('LT') + "")
   }
   
   if (data.msg == "t.date") {
-    bot.send("The date is: " + moment().format('LL') + "")
+    botsend("The date is: " + moment().format('LL') + "")
   }
 
   if (data.msg == "t.random") {
-    socket.send(_.sample(response.random))
+    botsend(_.sample(response.random))
   }
   
 })
