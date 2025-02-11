@@ -41,8 +41,8 @@ socket.send("Hello, World!") // a welcome message. you can remove this.
 socket.on("message", function(data) {
   
   if (data.msg == "t.hello") {
-    bot.send("Hello, " + data.nick + "") // you can replace this
-  }
+    bot.send(he.decode("Hello, " + data.nick + "")) // you can replace this
+  } // NOTE: It's recommendable to use he.decode when the command code has "data.nick". EXAMPLE: socket.send(he.decode("" + data.nick + " is nice."))
 
   if (data.msg == "t.ping") {
     bot.send("Pong!")
